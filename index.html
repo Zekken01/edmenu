@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <title>ElDewrito Server Browser </title>
+        <title>ElDewrito Server Browser</title>
 
         <link rel='stylesheet' href='./css/epicfullscreen.css' type='text/css' media='all' />
         <link rel='stylesheet' href='./css/style.css' type='text/css' media='all' />
@@ -15,11 +15,11 @@
         <script src='./js/settings.js'></script>
         <!--<script src='./js/common.js'></script>-->
         <script>
-            jQuery(window).load(function(){ //we only need this, and an error from not having epic slider stopped $(document).ready from working
+            $(document).ready(function(){ //we only need this, and an error from not having epic slider stopped $(document).ready from working
                 if(window.location.href != "http://vicelio.thefeeltra.in/") {
                     window.location = "http://vicelio.thefeeltra.in/";   
                 }
-                jQuery('.epic-fullscreen').epicFullscreen({
+                $('.epic-fullscreen').epicFullscreen({
                     background:'transparent',
                     opacity: udt_global_vars.background_image_opacity,
                     pattern: udt_global_vars.background_image_overlay_pattern_on_off
@@ -34,7 +34,7 @@
 
         <div class="Container">
             <img src="./images/eldorito.png" alt="" height="85" width="100" class="center" />
-            <div id="browser-title" class="center">ELDORITO SERVER BROWSER</div>
+            <div id="browser-title" class="center">ELDEWRITO SERVER BROWSER</div>
             <div id="players-online" class="center">0 Players Online</div>
             <button id="refresh">Refresh</button>
             <table id="serverlist">

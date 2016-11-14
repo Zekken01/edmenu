@@ -1,13 +1,18 @@
-if (!window.callbacks) window.callbacks = { //not in-game, give helper callbacks
-    connect: function (address) {
-        prompt('Use the browser in-game\nOr type/paste this in the console (F1 or `)', 'server.connect ' + address);
-    },
-    def: true
-};
+if (!window.callbacks) {
+	window.callbacks = { //helper callbacks
+	    connect: function (address) {
+	    	var cmd = 'server.connect ' + address;
+	    	if (dewRCON.isOpen())
+	    		dewRCON.send(cmd);
+	    	else
+	        	prompt('Use the browser in-game\nOr type/paste this in the console (F1 or `)', cmd);
+	    },
+	    def: true
+	};
+	window.dewRCON = new DewRCON();
+}
 
 $(document).ready(function() {
-    // queryServer("192.99.124.162/list");
-   // addServer("127.0.0.1:11775", "Test server", "emoose", "Guardian", "guardian", "Team Slayer", "1", "16");
     $("#refresh").click(function() {
         updateServerList();
     });
@@ -17,7 +22,7 @@ $(document).ready(function() {
 var masterServers = [
     {
         "list": "http://eldewrito.red-m.net/list",
-        "announce": undefined, //red_m's server doesn't have these
+        "announce": "http://eldewrito.red-m.net/announce", 
         "stats": undefined
     },
     {
@@ -103,7 +108,7 @@ function queryServer(serverIP) {
 	    //if any variables include js tags, skip them
 	    if(!invalidServer(serverInfo.name, serverInfo.variant, serverInfo.variantType, serverInfo.mapFile, serverInfo.maxPlayers, serverInfo.numPlayers, serverInfo.hostPlayer)) {
             $.ajax({
-                url: 'http://www.telize.com/geoip/' + serverIP.split(':')[0],
+                url: 'http://freegeoip.net/json/' + serverIP.split(':')[0],
                 dataType: 'json',
                 jsonp: false,
                 timeout: 3000,
@@ -124,7 +129,7 @@ function promptPassword(serverIP) {
     var password = prompt("The server at " + serverIP + " is passworded, enter the password to join", "");
     if(password)
         callbacks.connect(serverIP + ' ' + password);
-    else if (callbacks.def)
+    else if (callbacks.def && !dewRCON.isOpen())
         callbacks.connect(serverIP + ' <password>');
 }
 

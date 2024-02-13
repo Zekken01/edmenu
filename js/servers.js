@@ -21,39 +21,9 @@ $(document).ready(function() {
 
 var masterServers = [
     {
-        "list": "http://eldewrito.red-m.net/list",
-        "announce": "http://eldewrito.red-m.net/announce", 
-        "stats": undefined
-    },
-    {
-        "list": "http://192.99.124.162/list",
-        "announce": "http://192.99.124.162/announce",
-        "stats": "http://192.99.124.162/stats"
-    },
-    {
-        "list": "http://samantha-master.halo.click/list",
-        "announce": "http://samantha-master.halo.click/announce",
-        "stats": "http://samantha-master.halo.click/stats"
-    },
-    {
-        "list": "http://eldewrito-masterserver-thetwist84.c9.io/list",
-        "announce": "http://eldewrito-masterserver-thetwist84.c9.io/announce",
-        "stats": "http://eldewrito-masterserver-thetwist84.c9.io/stats"
-    },
-    {
-        "list": "http://eldewrito-masterserver-1-thetwist84.c9.io/list",
-        "announce": "http://eldewrito-masterserver-1-thetwist84.c9.io/announce",
-        "stats": "http://eldewrito-masterserver-1-thetwist84.c9.io/stats"
-    },
-    {
-        "list": "http://80.240.130.4:8117/list",
-        "announce": "http://80.240.130.4:8117/announce",
-        "stats": "http://80.240.130.4:8117/stats"
-    },
-    {
-        "list": "http://eldewrito-masterserver-personality.c9.io/list",
-        "announce": "http://eldewrito-masterserver-personality.c9.io/announce",
-        "stats": "http://eldewrito-masterserver-personality.c9.io/stats"
+        "list": "http://master.zgaf.io/list",
+        "announce": "http://master.zgaf.io/announce",
+        "stats": "http://master.zgaf.io/stats"
     }
 ], currentMS = 0, startMS = currentMS;
 
